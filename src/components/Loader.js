@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { css } from '@emotion/react';
 import FadeLoader from 'react-spinners/FadeLoader';
 import './Loader.css';

@@ -17,11 +17,19 @@
   z-index: 2;
 }
 
+.line {
+  position: absolute;
+  height: 60px;
+  width: 100%;
+  top: 20%;
+  background: #ffffff95;
+}
+
 .pokeball {
   width: 60%;
   height: auto;
   position: absolute;
-  top: 5%;
+  top: -5%;
   right: -15%;
   opacity: 0.05;
   z-index: 1;

@@ -1,0 +1,13 @@
+.gen-btn {
+  width: 25%;
+  background: #ff6c70;
+  color: white;
+}
+
+.gen-btn:first-of-type {
+  background-color: #4fc3f7;
+}
+
+.gen-btn:last-of-type {
+  background-color: #9ccc65;
+}

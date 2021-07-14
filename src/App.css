@@ -6,12 +6,26 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
-p {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 300;
+p,
+button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+}
+
+.btn {
+  border: none;
+  border-radius: 3px;
+  margin: 0 3px 1rem;
+  padding: 3px 7px;
+  font-size: 1rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.btn:hover {
+  cursor: pointer;
 }
 
 .container {
