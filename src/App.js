@@ -14,20 +14,6 @@ function App() {
   const [generation, setGeneration] = useState([1, 151]);
   const [loading, setLoading] = useState(true);
 
-  const getPokemon = async () => {
-    let pokemonArray = [];
-    for (let i = generation[0]; i <= generation[1]; i++) {
-      pokemonArray.push(await fetchPokemonData(i));
-    }
-    setPokemon(pokemonArray);
-    setLoading(false);
-  };
-
-  const fetchPokemonData = async (id) => {
-    const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-    return res;
-  };
-
   const colors = {
     fire: '#FDDFDF',
     grass: '#DEFDE0',
@@ -50,16 +36,27 @@ function App() {
   };
 
   useEffect(() => {
+    const getPokemon = async () => {
+      let pokemonArray = [];
+      for (let i = generation[0]; i <= generation[1]; i++) {
+        pokemonArray.push(await fetchPokemonData(i));
+      }
+      setPokemon(pokemonArray);
+      setLoading(false);
+    };
+
+    const fetchPokemonData = async (id) => {
+      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+      return res;
+    };
     getPokemon();
     setFilteredPokemon([]);
   }, [generation]);
 
   return (
     <div className='container'>
-      <h1 className='main-title'>Pokémon Starting Five</h1>
-      <p className='main-subtitle'>
-        Choose your favourite team of five Pokémon
-      </p>
+      <h1 className='main-title'>Pokédex</h1>
+      <p className='main-subtitle'>Rediscover all your favourite Pokémon</p>
       <PokemonSearch
         setLoading={setLoading}
         pokemon={pokemon}
@@ -71,6 +68,7 @@ function App() {
         searching={searching}
         setSearching={setSearching}
       />
+      {}
       {!loading ? (
         <PokemonList
           pokemon={pokemon}

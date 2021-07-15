@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './PokemonSearch.css';
 
 import FilterButton from './FilterButton';
+import InputSearch from './InputSearch';
 
 const PokemonSearch = ({
   setLoading,
@@ -45,33 +46,15 @@ const PokemonSearch = ({
 
   const [inputData, setInputData] = useState('');
 
-  const onChange = (e) => {
-    setInputData(e.target.value);
-  };
-
-  useEffect(() => {
-    if (inputData) {
-      setFilteredPokemon(
-        pokemon.filter((p) => p.data.name.includes(inputData.toLowerCase()))
-      );
-      setSearching(true);
-    }
-
-    if (!inputData) {
-      setFilteredPokemon([]);
-      setSearching(false);
-    }
-  }, [inputData]);
-
   return (
     <div className='pokemon-search'>
-      <input
-        className='searchbar'
-        type='text'
-        placeholder='Enter a Pokémon Name'
-        name='input'
-        onChange={onChange}
-        value={inputData}
+      <InputSearch
+        pokemon={pokemon}
+        inputData={inputData}
+        setInputData={setInputData}
+        setFilteredPokemon={setFilteredPokemon}
+        setSearching={setSearching}
+        setNoResults={setNoResults}
       />
       <div className='generation'>
         {generations.map((gen) => (
