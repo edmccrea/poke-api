@@ -5,3 +5,15 @@
   justify-content: center;
   margin-bottom: 2rem;
 }
+
+.card {
+  transition: all ease-in-out 200ms;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card.pokemon-img:hover {
+  width: 65%;
+}

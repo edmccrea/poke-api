@@ -1,5 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import axios from 'axios';
+import React, { useState, Fragment } from 'react';
 import pokeball from '../imgs/pokeball.png';
 import './PokemonCard.css';
 
@@ -13,9 +12,15 @@ const PokemonCard = ({ p, style }) => {
     return (zeroes + value).slice(-padding);
   };
 
+  const createSpeciesCard = () => {
+    setInfoDisplay(true);
+    document.body.style.overflow = 'hidden';
+  };
+
   return (
     <Fragment>
-      <div className='card' style={style} onClick={() => setInfoDisplay(true)}>
+      {/* <div className='card' style={style} onClick={() => setInfoDisplay(true)}> */}
+      <div className='card' style={style} onClick={createSpeciesCard}>
         <img
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${p.data.id}.png`}
           alt={p.data.name}
@@ -33,7 +38,9 @@ const PokemonCard = ({ p, style }) => {
         </p>
       </div>
 
-      {infoDisplay && <PokemonInfo p={p} style={style} />}
+      {infoDisplay && (
+        <PokemonInfo p={p} style={style} setInfoDisplay={setInfoDisplay} />
+      )}
     </Fragment>
   );
 };

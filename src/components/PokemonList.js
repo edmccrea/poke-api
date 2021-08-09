@@ -22,6 +22,7 @@ const PokemonList = ({ pokemon, filteredPokemon, colors, noResults }) => {
             <PokemonCard
               p={p}
               style={{ backgroundColor: colors[p.data.types[0].type.name] }}
+              className='card'
             />
           </Fragment>
         ))}
