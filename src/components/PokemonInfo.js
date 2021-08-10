@@ -2,18 +2,22 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './PokemonInfo.css';
 
-import Stat from './Stat';
+import About from './About';
+import Stats from './Stats';
+import Evolution from './Evolution';
 
 const PokemonInfo = ({ p, style, setInfoDisplay }) => {
   const [species, setSpecies] = useState({});
+  const [showAbout, setShowAbout] = useState(true);
+  const [showStats, setShowStats] = useState(false);
+  const [showEvolution, setShowEvolution] = useState(false);
+  const [evolutionChain, setEvolutionChain] = useState({});
 
   const createSpecies = async () => {
     const res = await axios.get(
       `https://pokeapi.co/api/v2/pokemon-species/${p.data.id}`
     );
-    console.log(res);
     setSpecies(res.data);
-    console.log(species);
   };
 
   useEffect(() => {
@@ -23,6 +27,30 @@ const PokemonInfo = ({ p, style, setInfoDisplay }) => {
   const hideSpeciesCard = () => {
     setInfoDisplay(false);
     document.body.style.overflow = 'scroll';
+  };
+
+  const toggleAbout = () => {
+    if (!showAbout) {
+      setShowAbout(true);
+      setShowEvolution(false);
+      setShowStats(false);
+    }
+  };
+
+  const toggleStats = () => {
+    if (!showStats) {
+      setShowAbout(false);
+      setShowEvolution(false);
+      setShowStats(true);
+    }
+  };
+
+  const toggleEvolution = () => {
+    if (!showEvolution) {
+      setShowAbout(false);
+      setShowEvolution(true);
+      setShowStats(false);
+    }
   };
 
   const lpad = (value, padding) => {
@@ -53,8 +81,24 @@ const PokemonInfo = ({ p, style, setInfoDisplay }) => {
           </div>
 
           <div className='info-section'>
-            {/* <p>{species.flavor_text_entries[0].flavor_text}</p> */}
-            <Stat species={species} />
+            <div className='info-padding'>
+              <nav className='info-nav'>
+                <ul>
+                  <li onClick={toggleAbout}>About</li>
+                  <li onClick={toggleStats}>Stats</li>
+                  <li onClick={toggleEvolution}>Evolution</li>
+                </ul>
+              </nav>
+              {showAbout && (
+                <About
+                  species={species}
+                  height={p.data.height * 10}
+                  weight={p.data.weight / 10}
+                />
+              )}
+              {showStats && <Stats p={p} />}
+              {showEvolution && <Evolution species={species} />}
+            </div>
             <button className='btn close-btn' onClick={hideSpeciesCard}>
               Close
             </button>

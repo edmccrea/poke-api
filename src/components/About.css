@@ -1,0 +1,13 @@
+.about-info {
+  display: flex;
+}
+
+.about-type {
+  font-size: 0.9rem;
+  width: 70px;
+  margin-right: 1rem;
+}
+
+.poke-description {
+  margin-top: 1rem;
+}

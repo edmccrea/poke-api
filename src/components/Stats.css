@@ -1,0 +1,17 @@
+.stat-info {
+  display: flex;
+}
+
+.stat-type {
+  font-size: 0.9rem;
+  width: 150px;
+  margin-right: 1rem;
+}
+
+.strong {
+  color: #5cb85c;
+}
+
+.weak {
+  color: #d9534f;
+}

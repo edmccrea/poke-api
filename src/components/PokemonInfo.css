@@ -16,7 +16,8 @@
 .card-container {
   position: relative;
   width: 350px;
-  min-height: 90vh;
+  min-height: 60vh;
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,7 +64,38 @@
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+}
+.info-padding {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto 1rem;
+}
+
+.info-nav ul {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.info-nav ul li {
+  font-weight: 200;
+}
+
+.info-nav ul li:hover {
+  cursor: pointer;
+}
+
+.info-nav ul li:after {
+  transition: all ease-in-out 300ms;
+  background: none repeat scroll 0 0 black;
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+}
+
+.info-nav ul li:hover:after {
+  width: 100%;
 }
 
 .close-btn {
