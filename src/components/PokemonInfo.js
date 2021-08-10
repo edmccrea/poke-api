@@ -78,6 +78,12 @@ const PokemonInfo = ({ p, style, setInfoDisplay }) => {
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${p.data.id}.png`}
               alt={p.data.name}
             />
+            {/* <div className='line-bg'></div>
+            <img
+              className='poke-img'
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${p.data.id}.png`}
+              alt={p.data.name}
+            /> */}
           </div>
 
           <div className='info-section'>
