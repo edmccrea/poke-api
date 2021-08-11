@@ -42,4 +42,8 @@
     flex-direction: column;
     align-items: center;
   }
+
+  .pokemon-search {
+    width: 80%;
+  }
 }
