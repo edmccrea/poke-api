@@ -88,6 +88,7 @@ const PokemonInfo = ({ p, style, setInfoDisplay, species, evolutionChain }) => {
                   </li>
                 </ul>
               </nav>
+
               {showAbout && (
                 <About
                   species={species}
