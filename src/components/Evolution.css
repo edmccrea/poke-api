@@ -1,4 +1,5 @@
 .evolve-section {
   display: flex;
   align-items: center;
+  max-height: 80px;
 }

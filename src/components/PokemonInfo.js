@@ -11,6 +11,10 @@ const PokemonInfo = ({ p, style, setInfoDisplay, species, evolutionChain }) => {
   const [showStats, setShowStats] = useState(false);
   const [showEvolution, setShowEvolution] = useState(false);
 
+  let about = document.querySelector('.about');
+  let stats = document.querySelector('.stats');
+  let evolution = document.querySelector('.evolution');
+
   const hideSpeciesCard = () => {
     setInfoDisplay(false);
     document.body.style.overflow = 'scroll';
@@ -21,6 +25,9 @@ const PokemonInfo = ({ p, style, setInfoDisplay, species, evolutionChain }) => {
       setShowAbout(true);
       setShowEvolution(false);
       setShowStats(false);
+      about.classList.add('selected');
+      stats.classList.remove('selected');
+      evolution.classList.remove('selected');
     }
   };
 
@@ -29,6 +36,9 @@ const PokemonInfo = ({ p, style, setInfoDisplay, species, evolutionChain }) => {
       setShowAbout(false);
       setShowEvolution(false);
       setShowStats(true);
+      about.classList.remove('selected');
+      stats.classList.add('selected');
+      evolution.classList.remove('selected');
     }
   };
 
@@ -37,6 +47,9 @@ const PokemonInfo = ({ p, style, setInfoDisplay, species, evolutionChain }) => {
       setShowAbout(false);
       setShowEvolution(true);
       setShowStats(false);
+      about.classList.remove('selected');
+      stats.classList.remove('selected');
+      evolution.classList.add('selected');
     }
   };
 
@@ -64,9 +77,15 @@ const PokemonInfo = ({ p, style, setInfoDisplay, species, evolutionChain }) => {
             <div className='info-padding'>
               <nav className='info-nav'>
                 <ul>
-                  <li onClick={toggleAbout}>About</li>
-                  <li onClick={toggleStats}>Stats</li>
-                  <li onClick={toggleEvolution}>Evolution</li>
+                  <li className='about selected' onClick={toggleAbout}>
+                    About
+                  </li>
+                  <li className='stats' onClick={toggleStats}>
+                    Stats
+                  </li>
+                  <li className='evolution' onClick={toggleEvolution}>
+                    Evolution
+                  </li>
                 </ul>
               </nav>
               {showAbout && (
