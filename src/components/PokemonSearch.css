@@ -46,4 +46,8 @@
   .pokemon-search {
     width: 80%;
   }
+
+  .searchbar {
+    width: 100%;
+  }
 }
