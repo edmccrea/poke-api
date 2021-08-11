@@ -11,3 +11,9 @@
 .gen-btn:last-of-type {
   background-color: #9ccc65;
 }
+
+@media screen and (max-width: 800px) {
+  .gen-btn {
+    width: 80%;
+  }
+}
